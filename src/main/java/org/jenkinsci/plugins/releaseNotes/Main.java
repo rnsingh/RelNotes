@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /**
  * Demonstrates how to update a page using the Confluence 5.5 REST API.
  */
-public class ReleaseNotesWikiUpdate
+public class Main
 {
     private static final String BASE_URL = "https://rnsingh.atlassian.net/wiki";
     private static final String USERNAME = "admin";
@@ -41,7 +41,7 @@ public class ReleaseNotesWikiUpdate
         return String.format("%s/rest/api/content/%s?expand=%s&os_authType=basic&os_username=%s&os_password=%s", BASE_URL, contentId, expand, URLEncoder.encode(USERNAME, ENCODING), URLEncoder.encode(PASSWORD, ENCODING));
     }
 
-    public  void updateWiki(String message) throws Exception
+    public  static void  main(String args[]) throws Exception
     {
         final long pageId = 1572866;
 
@@ -79,9 +79,10 @@ public class ReleaseNotesWikiUpdate
 
         // Update page
         // The updated value must be Confluence Storage Format (https://confluence.atlassian.com/display/DOC/Confluence+Storage+Format), NOT HTML.
-        page.getJSONObject("body").getJSONObject("storage").put("value", message);
+        page.getJSONObject("body").getJSONObject("storage").put("value", "New Message");
        // page.getJSONObject("title").getJSONObject("storage").put("value", "Test Page");
         int currentVersion = page.getJSONObject("version").getInt("number");
+        System.out.println("Current version is " + currentVersion);
         page.getJSONObject("version").put("number", currentVersion + 1);
         int newVersion = page.getJSONObject("version").getInt("number");
         System.out.println("New version is " + newVersion);

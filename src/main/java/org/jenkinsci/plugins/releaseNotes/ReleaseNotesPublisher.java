@@ -44,11 +44,11 @@ public class ReleaseNotesPublisher extends Recorder {
 
     private final String name;
     EnvVars envVars = new EnvVars();
-	String jobName = "";
-	String buildRevision = "Not Applicable";
-	String buildTag = "Not Applicable";
-	String message = "" ;
-	String jiraId = "" ;
+	public String jobName = "";
+	public String buildRevision = "Not Applicable";
+	public String buildTag = "Not Applicable";
+	// public String message = "" ;
+	public String jiraId = "" ;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
@@ -72,7 +72,7 @@ public class ReleaseNotesPublisher extends Recorder {
         
     	
 		
-    	message = releaseNotesEnvVars(build,listener);
+    	String message = releaseNotesEnvVars(build,listener);
     	ReleaseNotesWikiUpdate relNotesWikUpdate = new ReleaseNotesWikiUpdate();
     	
     	try {
@@ -121,7 +121,7 @@ public class ReleaseNotesPublisher extends Recorder {
 		System.out.println(jiraId);
 		System.out.println(jobName);
 		System.out.println(buildRevision);
-		System.out.println(jiraId);
+		// System.out.println(jiraId);
 		System.out.println(buildTag);
 		System.out.println(name);
 		
@@ -134,7 +134,13 @@ public class ReleaseNotesPublisher extends Recorder {
 		e.printStackTrace();
 	}
 	
-	    output = "JOB NAME IS" + " " + jobName +  "\nTEAM NAME IS" + " "  + name  + "\nBUILD REVISION IS" + buildRevision  +"!";
+	    output = "JIRA_NUMBER:" + " " + jiraId 
+	    			+ " " + "JOB NAME:" + "  " + jobName 
+	    			+  " " +  "BUILD REVISION:"  + " "  + buildRevision  
+	    			+   " " + "BUILD TAG:" + "  "  + name  
+	    			+   " " + "TEAM NAME:" + "  "  + name
+	    			+   " " +"\n";
+	    
     	return output;
     }
     
