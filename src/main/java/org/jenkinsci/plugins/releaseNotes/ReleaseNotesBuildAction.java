@@ -6,9 +6,9 @@ import hudson.model.Action;
 /**
  * 
  */
-public class ReleaseNotesBuildAction implements Action {
+public abstract class ReleaseNotesBuildAction implements Action {
 
-    private String message;
+   /* private String message;
     private AbstractBuild<?, ?> build;
 
     @Override
@@ -32,9 +32,9 @@ public class ReleaseNotesBuildAction implements Action {
 
     public int getBuildNumber() {
         return this.build.number;
-    }
+    }*/
 
-    public AbstractBuild<?, ?> getBuild() {
+/*    public AbstractBuild<?, ?> getBuild() {
         return build;
     }
 
@@ -42,5 +42,5 @@ public class ReleaseNotesBuildAction implements Action {
     {
         this.message = message;
         this.build = build;
-    }
+    }*/
 }

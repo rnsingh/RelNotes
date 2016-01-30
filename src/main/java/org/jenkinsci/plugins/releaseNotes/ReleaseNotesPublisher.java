@@ -81,8 +81,8 @@ public class ReleaseNotesPublisher extends Recorder {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        ReleaseNotesBuildAction buildAction = new ReleaseNotesBuildAction(message, build);
-        build.addAction(buildAction);
+        /*ReleaseNotesBuildAction buildAction = new ReleaseNotesBuildAction(message, build);
+        build.addAction(buildAction);*/
 
         return true;
     }
@@ -157,10 +157,10 @@ public class ReleaseNotesPublisher extends Recorder {
         return BuildStepMonitor.NONE;
     }
 
-    @Override
+    /*@Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
         return new ReleaseNotesProjectAction(project);
-    }
+    }*/
 
     /**
      * Descriptor for {@link ReleaseNotesPublisher}. Used as a singleton.

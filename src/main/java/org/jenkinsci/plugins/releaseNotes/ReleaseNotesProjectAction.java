@@ -10,11 +10,11 @@ import java.util.List;
 /**
  * Created by
  */
-public class ReleaseNotesProjectAction implements Action {
+public abstract class ReleaseNotesProjectAction implements Action {
 
     private AbstractProject<?, ?> project;
 
-    @Override
+    /*@Override
     public String getIconFileName() {
         return "/plugin/releaseNotes/img/project_icon.png";
     }
@@ -31,13 +31,13 @@ public class ReleaseNotesProjectAction implements Action {
 
     public AbstractProject<?, ?> getProject() {
         return this.project;
-    }
+    }*/
 
     public String getProjectName() {
         return this.project.getName();
     }
 
-    public List<String> getProjectMessages() {
+  /*  public List<String> getProjectMessages() {
         List<String> projectMessages = new ArrayList<String>();
         List<? extends AbstractBuild<?, ?>> builds = project.getBuilds();
         String projectMessage="";
@@ -49,9 +49,9 @@ public class ReleaseNotesProjectAction implements Action {
             projectMessages.add(projectMessage);
         }
         return projectMessages;
+    }*/
+
+    /*ReleaseNotesProjectAction(final AbstractProject<?, ?> project) {
+        this.project = project;*/
     }
 
-    ReleaseNotesProjectAction(final AbstractProject<?, ?> project) {
-        this.project = project;
-    }
-}
