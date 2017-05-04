@@ -1,5 +1,4 @@
 
-pipeline{
 node('master') {
 
  stage('Configure') {
@@ -19,4 +18,4 @@ node('master') {
   // cleanWs()
    }
  }
-}
+
