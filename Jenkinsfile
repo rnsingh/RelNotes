@@ -13,4 +13,7 @@ node('master') {
     stage('Build') {
     bat 'mvn -B -V -U -e clean package'
   }
+ stage('Clean Worspace Post Build'){
+  cleanWs()
+ }
 }
