@@ -16,7 +16,7 @@ node('master') {
     bat 'mvn -B -V -U -e clean package'
   }
  stage('Clean Workspace Post Build'){
-  cleanWs()
+  #cleanWs()
    }
  }
 }
